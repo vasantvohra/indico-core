@@ -16,6 +16,7 @@ Improvements
 - Make it possible to load more events in series management (:pr:`5629`)
 - Check manually entered email addresses of speakers/authors/chairpersons
   to avoid collisions and inconsistencies (:pr:`5478`)
+- Add event language settings to set default and additional languages (:pr:`5607`)
 
 Bugfixes
 ^^^^^^^^
