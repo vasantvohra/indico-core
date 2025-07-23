@@ -203,9 +203,9 @@ class IndicoDurationField(Field):
 class IndicoDateField(DateField):
     widget = JinjaWidget('forms/date_widget.html', single_line=True, single_kwargs=True)
 
-    def __init__(self, *args, allow_clear=None, weekend_disabled=False, disabled_dates=None, **kwargs):
+    def __init__(self, *args, allow_clear=None, disabled_days=None, disabled_dates=None, **kwargs):
         self.allow_clear = allow_clear
-        self.weekend_disabled = weekend_disabled
+        self.disabled_days = disabled_days
         self.disabled_dates = disabled_dates
         super().__init__(*args, **kwargs)
         if self.allow_clear is None:
@@ -250,13 +250,13 @@ class IndicoDateTimeField(DateTimeField):
     widget = JinjaWidget('forms/datetime_widget.html', single_line=True, single_kwargs=True)
 
     def __init__(self, *args, timezone=None, default_time=time(0, 0), allow_clear=None,
-                 weekend_disabled=False, disabled_dates=None, **kwargs):
+                 disabled_days=None, disabled_dates=None, **kwargs):
         self._timezone = timezone
         self.default_time = default_time
         self.date_missing = False
         self.time_missing = False
         self.allow_clear = allow_clear
-        self.weekend_disabled = weekend_disabled
+        self.disabled_days = disabled_days
         self.disabled_dates = disabled_dates
         super().__init__(*args, **kwargs)
         if self.allow_clear is None:
